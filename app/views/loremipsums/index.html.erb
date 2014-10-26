@@ -1,9 +1,10 @@
+<%= link_to "Home", "/" %> 
 <h2>Lorem Ipsum Generator</h2>
 <p>Lets make some cool text! How many paragraphs of cool text do you want?</p>
 
 <%= form_tag("/lorem-ipsum", method: "post") do %>
-  <%= label_tag(:paragraphs, "How many paragraphs do you wish to generate?") %>:
-  <%= text_field_tag(:paragraphs) %>
+    <%= label_tag(:paragraphs, "How many paragraphs do you wish to generate?") %>:
+    <%= text_field_tag(:paragraphs) %>
   <%= submit_tag("Create my text!") %>
 <% end %>
 

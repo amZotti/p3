@@ -1,2 +1,67 @@
+<%= link_to "Home", "/" %>
 <h2>User Generator</h2>
-<p>How many cool users do you want to generate?</p>
+<%= form_tag("/user-generator", method: "post") do %>
+  <%= label_tag(:users, "How many cool users do you wish to generate?") %>:
+  <%= text_field_tag(:users) %>
+  <br>
+<%= check_box_tag(:birthdate) %>
+<%= label_tag(:birthdate, "birthdate") %>
+<br>
+<%= check_box_tag(:profile) %>
+<%= label_tag(:profile, "profile") %>
+<br>
+<%= check_box_tag(:password) %>
+<%= label_tag(:password, "password") %>
+<br>
+<%= check_box_tag(:money) %>
+<%= label_tag(:money, "money") %>
+<br>
+<%= check_box_tag(:shirt_size) %>
+<%= label_tag(:shirt_size, "shirt size") %>
+<br>
+<%= check_box_tag(:email_address) %>
+<%= label_tag(:email_address, "email_address") %>
+<br>
+  <%= submit_tag("Create my users!") %>
+<% end %>
+
+<% if @generated_users %>
+  <% @generated_users.each do |user| %>
+
+    <%= "Name: " + user[:name] %>
+    <br>
+
+    <% if user[:email_address] %>
+      <%= "Email: " + user[:email_address] %>
+      <br>
+    <% end %>
+
+    <% if user[:profile] %>
+      <%= "Profile: " + user[:profile] %>
+      <br>
+    <% end %>
+
+    <% if user[:birthdate] %>
+      <%= "Birthdate: " + user[:birthdate] %>
+      <br>
+    <% end %>
+
+    <% if user[:money] %>
+      <%= "Savings account: " + user[:money] %>
+      <br>
+    <% end %>
+
+    <% if user[:shirt_size] %>
+      <%= "Shirt size: " + user[:shirt_size] %>
+      <br>
+    <% end %>
+
+    <% if user[:password] %>
+      <%= "Password: " + user[:password] %>
+      <br>
+    <% end %>
+    <br><br>
+  <% end %>
+<% end %>
+
+
