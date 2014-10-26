@@ -5,6 +5,9 @@ class LoremipsumsController < ApplicationController
   def create
     @number_of_paragraphs = params['paragraphs']
     @text = Generator.generate_text(@number_of_paragraphs)
-    render :index
+    respond_to do |format|
+      format.html { render :index }
+      format.js { render @text }
+    end
   end
 end

@@ -5,10 +5,12 @@
 <%= form_tag("/lorem-ipsum", method: "post") do %>
     <%= label_tag(:paragraphs, "How many paragraphs do you wish to generate?") %>:
     <%= text_field_tag(:paragraphs) %>
-  <%= submit_tag("Create my text!") %>
+    <%= submit_tag("Create my text!", id: "text-generator") %>
 <% end %>
 
-<% if @text %>
-  <%= @text.html_safe %> 
-<% end %>
+<div id="text">
+  <% if @text %>
+    <%= @text.html_safe %> 
+  <% end %>
+</div>
 

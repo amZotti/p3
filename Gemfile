@@ -12,3 +12,6 @@ gem 'rails_12factor', group: :production
 gem 'forgery'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
+group :production do
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+end
